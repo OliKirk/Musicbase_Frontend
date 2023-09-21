@@ -1,4 +1,4 @@
-const endpoint = "????";
+const endpoint = "http://localhost:4000";
 
 async function getArtists() {
   const response = await fetch(`${endpoint}/artists`);
