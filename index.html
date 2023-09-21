@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>musicbase</title>
   </head>
   <body>
     <header>
-      <h1>musicbase</h1>
-      <button id="add-artist-button">Add Artist</button>
-      <button id="add-track-button">Add Track</button>
-      <button id="add-album-button">Add Album</button>
+      <h1>MUSICBASE</h1>
+      <br />
+      <label for="input-search">Search</label>
+      <input type="search" id="input-search" placeholder="Search by Artist, Album, Track ..." />
     </header>
 
     <dialog id="artist-dialog">
@@ -43,5 +44,8 @@
     </dialog>
 
     <script src="app.js"></script>
+    <footer>
+      <h3>Made by WAHOL</h3>
+    </footer>
   </body>
 </html>
