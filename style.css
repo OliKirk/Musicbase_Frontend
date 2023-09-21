@@ -46,6 +46,23 @@ main section {
   padding: 20px;
 }
 
+div {
+  display: flex;
+}
+
+div section {
+  float: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  height: 100%;
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
 .background-header {
   background-color: wheat;
   font-weight: 700;

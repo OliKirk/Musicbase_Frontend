@@ -29,8 +29,7 @@ function showArtists(list) {
   document.querySelector("#artist-list").innerHTML = "";
   for (const artist of list) {
     const artistHTML = /*html*/ `
-        <h3>artists</h3>
-    <ul>
+    <ul type="none">
       <li>${artist.artist_name}</li>
     </ul>`;
     document.querySelector("#artist-list").insertAdjacentHTML("beforeend", artistHTML);
@@ -40,10 +39,9 @@ function showTracks(list) {
   document.querySelector("#track-list").innerHTML = "";
   for (const track of list) {
     const trackHTML = /*html*/ `
-    <h3>Tracks</h3>
-    <ul>
+    <ol type="">
       <li>${track.track_name}</li>
-    </ul>`;
+    </ol>`;
     document.querySelector("#track-list").insertAdjacentHTML("beforeend", trackHTML);
   }
 }
@@ -51,8 +49,7 @@ function showAlbums(list) {
   document.querySelector("#album-list").innerHTML = "";
   for (const album of list) {
     const albumHTML = /*html*/ `
-        <h3>Albums</h3>
-    <ul>
+    <ul type="none">
       <li>${album.album_name}</li>
     </ul>`;
     document.querySelector("#album-list").insertAdjacentHTML("beforeend", albumHTML);
