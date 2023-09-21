@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>musicbase</title>
+  </head>
+  <body>
+    <header>
+      <h1>musicbase</h1>
+      <button id="add-album-button">Add Album</button>
+      <button id="addTrackButton">Add Track</button>
+    </header>
+
+    <dialog id="album-dialog">
+      <h2>Add Album</h2>
+      <label for="album-title">Album Title:</label>
+      <input type="text" id="album-title" name="album-title" /> <br />
+      <label for="artist-name">Artist Name:</label>
+      <input type="text" id="artist-name" name="artist-name" />
+      <div id="track-list">
+        <label for="track-title">Track Title:</label>
+        <input type="text" class="trackInput" name="track-title" />
+      </div>
+      <button id="add-track-button-album">Add Track</button>
+      <button id="close-album-dialog">Close</button>
+    </dialog>
+
+    <dialog id="track-dialog">
+
+      <button id="close-track-dialog">Close</button>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
