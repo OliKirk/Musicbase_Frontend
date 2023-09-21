@@ -2,14 +2,14 @@ import { getArtists, getAlbums, getTracks } from "./rest-service.js";
 
 window.addEventListener("load", initApp);
 
+let tracks;
 let artists;
 let albums;
-let tracks;
 
 function initApp() {
-  updateAlbumsList();
-  updateArtistsList();
   updateTracksList();
+  updateArtistsList();
+  updateAlbumsList();
 }
 
 async function updateArtistsList() {
@@ -29,8 +29,9 @@ function showArtists(list) {
   document.querySelector("#artist-list").innerHTML = "";
   for (const artist of list) {
     const artistHTML = /*html*/ `
+        <h3>artists</h3>
     <ul>
-      <li>${artist.name}</li>
+      <li>${artist.artist_name}</li>
     </ul>`;
     document.querySelector("#artist-list").insertAdjacentHTML("beforeend", artistHTML);
   }
@@ -39,9 +40,9 @@ function showTracks(list) {
   document.querySelector("#track-list").innerHTML = "";
   for (const track of list) {
     const trackHTML = /*html*/ `
+    <h3>Tracks</h3>
     <ul>
-      <li>${track.title}</li>
-      <li>${track.duration}</li>
+      <li>${track.track_name}</li>
     </ul>`;
     document.querySelector("#track-list").insertAdjacentHTML("beforeend", trackHTML);
   }
@@ -50,8 +51,9 @@ function showAlbums(list) {
   document.querySelector("#album-list").innerHTML = "";
   for (const album of list) {
     const albumHTML = /*html*/ `
+        <h3>Albums</h3>
     <ul>
-      <li>${album.title}</li>
+      <li>${album.album_name}</li>
     </ul>`;
     document.querySelector("#album-list").insertAdjacentHTML("beforeend", albumHTML);
   }

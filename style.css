@@ -33,7 +33,17 @@ img {
 header {
   background-color: wheat;
   color: black;
-  padding: 100px;
+  padding: 25px;
+}
+
+main {
+  display: flex;
+}
+
+main section {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
 }
 
 .background-header {
@@ -54,7 +64,7 @@ footer {
   color: black;
   padding: 1em;
   text-align: center;
-  padding: 150px;
+  padding: 20px;
   background-position: center;
 }
 #input-search {
