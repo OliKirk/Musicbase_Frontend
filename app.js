@@ -30,11 +30,10 @@ function addArtistInputField() {
 }
 function closeAlbumDialog() {
   const albumDialog = document.querySelector("#album-dialog");
-  const albumTitleInput = document.querySelector("#album-title");
+  const albumTitleInput = document.querySelector("#album-input");
   const artistInputs = document.querySelectorAll(".artist-input");
   const trackInputs = document.querySelectorAll(".track-input");
 
-  // Nulstil inputfelter
   albumTitleInput.value = "";
   artistInputs.forEach(function (input) {
     input.value = "";
@@ -43,16 +42,14 @@ function closeAlbumDialog() {
     input.value = "";
   });
 
-  // Fjern de dynamisk tilføjede inputfelter, men bevar label-elementerne
-  const dynamicTrackInputs = document.querySelectorAll(".track-input:not(:first-child)");
-  dynamicTrackInputs.forEach(function (input) {
+  trackInputs.forEach(function (input) {
     input.parentNode.removeChild(input);
   });
 
-  const dynamicArtistInputs = document.querySelectorAll(".artist-input:not(:first-child)");
-  dynamicArtistInputs.forEach(function (input) {
+  artistInputs.forEach(function (input) {
     input.parentNode.removeChild(input);
   });
+
   addArtistInputField();
   addTrackInputField();
 
