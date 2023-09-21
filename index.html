@@ -16,14 +16,16 @@
       <h2>Add Album</h2>
       <label for="album-title">Album Title:</label>
       <input type="text" id="album-title" name="album-title" /> <br />
-      <label for="artist-name">Artist Name:</label>
-      <input type="text" id="artist-name" name="artist-name" />
+      <div id="artist-list">
+        <label for="artist-name">Artist Name:</label>
+        <input type="text" class="artist-input" name="artist-title" />
+      </div>
       <div id="track-list">
-        
         <label for="track-title">Track Title:</label>
-        <input type="text" class="trackInput" name="track-title" />
+        <input type="text" class="track-input" name="track-title" />
       </div>
       <button id="add-track-button-album">Add Track</button>
+      <button id="add-artist-button-album">Add Artist</button>
       <button id="close-album-dialog">Close</button>
     </dialog>
 
