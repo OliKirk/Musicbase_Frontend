@@ -10,6 +10,9 @@ function initApp() {
   updateTracksList();
   updateArtistsList();
   updateAlbumsList();
+
+  document.querySelector("#input-search").addEventListener("keyup", searchAll);
+  document.querySelector("#input-search").addEventListener("search", searchAll);
 }
 
 async function updateArtistsList() {
@@ -35,6 +38,7 @@ function showArtists(list) {
     document.querySelector("#artist-list").insertAdjacentHTML("beforeend", artistHTML);
   }
 }
+
 function showTracks(list) {
   document.querySelector("#track-list").innerHTML = "";
   for (const track of list) {
@@ -55,3 +59,42 @@ function showAlbums(list) {
     document.querySelector("#album-list").insertAdjacentHTML("beforeend", albumHTML);
   }
 }
+
+function searchAll(eventValue) {
+  const keysSomeArtist = ["artist_name"];
+  const keysSomeAlbums = ["album_name"];
+  const keysSomeTracks = ["track_name"];
+  const valuesSome = [eventValue];
+
+  const resultSomeArtists = artists.filter((artist) => keysSomeArtist.some((key) => valuesSome.some((searchValue) => artist[key].toLowerCase().includes(searchValue.toLowerCase()))));
+  const resultSomeAlbums = albums.filter((album) => keysSomeAlbums.some((key) => valuesSome.some((searchValue) => album[key].toLowerCase().includes(searchValue.toLowerCase()))));
+  const resultSomeTracks = tracks.filter((track) => keysSomeTracks.some((key) => valuesSome.some((searchValue) => track[key].toLowerCase().includes(searchValue.toLowerCase()))));
+  showArtists(resultSomeArtists);
+  showAlbums(resultSomeAlbums);
+  showTracks(resultSomeTracks);
+}
+
+// function searchInMusicbase(searchValue) {
+//   searchValue = searchValue.toLowerCase();
+//   const artist = artists.find((a) => a.artist_name.toLowerCase() === searchValue);
+
+//   if (!artist) {
+//     return "Kunstneren blev ikke fundet.";
+//   }
+
+//   const artistTracks = tracks.filter((track) => track.artistName.toLowerCase() === artist.artist_name.toLowerCase());
+//   if (!artistTracks) {
+//     return "tracket blev ikke fundet.";
+//   }
+//   return {
+//     artist: artist,
+//     tracks: artistTracks,
+//   };
+// }
+
+// function inputSearchChanged(event) {
+//   const searchValue = event.target.value;
+//   const dataToShow = searchInMusicbase(searchValue);
+//   showArtists(dataToShow.artist);
+//   showTracks(dataToShow.tracks);
+// }
