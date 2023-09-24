@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:4000";
+const endpoint = "https://www.awohl-musicbase-db.azurewebsites.net";
 
 async function getArtists() {
   const response = await fetch(`${endpoint}/artists`);
@@ -16,22 +16,20 @@ async function getTracks() {
   return data;
 }
 async function searchArtist(searchTerm) {
-  const response = await fetch(`${endpoint}/artists/searchq=${searchTerm}`);
+  const response = await fetch(`${endpoint}/artists/search?q=${searchTerm}`);
 
-  console.log(`repsonse ${response}`);
   const data = await response.json();
-  console.log(`data ${data}`);
   return data;
 }
 
 async function searchAlbum(searchTerm) {
-  const response = await fetch(`${endpoint}/albums/searchq=${searchTerm}`);
+  const response = await fetch(`${endpoint}/albums/search?q=${searchTerm}`);
   const data = await response.json();
   return data;
 }
 
 async function searchTracks(searchTerm) {
-  const response = await fetch(`${endpoint}/tracks/searchq=${searchTerm}`);
+  const response = await fetch(`${endpoint}/tracks/search?q=${searchTerm}`);
   const data = await response.json();
   return data;
 }

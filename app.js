@@ -13,6 +13,10 @@ function initApp() {
 
   document.querySelector("#input-search").addEventListener("keyup", submitSearchAlbum);
   document.querySelector("#input-search").addEventListener("search", submitSearchAlbum);
+  document.querySelector("#input-search").addEventListener("keyup", submitSearchArtist);
+  document.querySelector("#input-search").addEventListener("search", submitSearchArtist);
+  document.querySelector("#input-search").addEventListener("keyup", submitSearchTrack);
+  document.querySelector("#input-search").addEventListener("search", submitSearchTrack);
 }
 
 async function updateArtistsList() {
@@ -65,13 +69,9 @@ async function submitSearchArtist(event) {
 
   const form = event.target;
 
-  const search = form.searchArtistInput.value;
-
-  console.log(`search ${search}`);
+  const search = form.value.toLowerCase();
 
   const searchResult = await searchArtist(search);
-
-  console.log(`searchresult ${searchResult}`);
 
   showArtists(searchResult);
 }
@@ -88,12 +88,12 @@ async function submitSearchAlbum(event) {
   showAlbums(searchResult);
 }
 
-async function submitSearchTracks(event) {
+async function submitSearchTrack(event) {
   event.preventDefault();
 
   const form = event.target;
 
-  const search = form.searchTrackInput.value;
+  const search = form.value.toLowerCase();
 
   const searchResult = await searchTracks(search);
 
