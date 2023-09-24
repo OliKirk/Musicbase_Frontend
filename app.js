@@ -1,4 +1,4 @@
-import { getArtists, getAlbums, getTracks } from "./rest-service.js";
+import { getArtists, getAlbums, getTracks, searchAlbum, searchArtist, searchTracks } from "./rest-service.js";
 
 window.addEventListener("load", initApp);
 
@@ -11,8 +11,8 @@ function initApp() {
   updateArtistsList();
   updateAlbumsList();
 
-  document.querySelector("#input-search").addEventListener("keyup", searchAll);
-  document.querySelector("#input-search").addEventListener("search", searchAll);
+  document.querySelector("#input-search").addEventListener("keyup", submitSearchAlbum);
+  document.querySelector("#input-search").addEventListener("search", submitSearchAlbum);
 }
 
 async function updateArtistsList() {
@@ -60,41 +60,42 @@ function showAlbums(list) {
   }
 }
 
-function searchAll(eventValue) {
-  const keysSomeArtist = ["artist_name"];
-  const keysSomeAlbums = ["album_name"];
-  const keysSomeTracks = ["track_name"];
-  const valuesSome = [eventValue];
+async function submitSearchArtist(event) {
+  event.preventDefault();
 
-  const resultSomeArtists = artists.filter((artist) => keysSomeArtist.some((key) => valuesSome.some((searchValue) => artist[key].toLowerCase().includes(searchValue.toLowerCase()))));
-  const resultSomeAlbums = albums.filter((album) => keysSomeAlbums.some((key) => valuesSome.some((searchValue) => album[key].toLowerCase().includes(searchValue.toLowerCase()))));
-  const resultSomeTracks = tracks.filter((track) => keysSomeTracks.some((key) => valuesSome.some((searchValue) => track[key].toLowerCase().includes(searchValue.toLowerCase()))));
-  showArtists(resultSomeArtists);
-  showAlbums(resultSomeAlbums);
-  showTracks(resultSomeTracks);
+  const form = event.target;
+
+  const search = form.searchArtistInput.value;
+
+  console.log(`search ${search}`);
+
+  const searchResult = await searchArtist(search);
+
+  console.log(`searchresult ${searchResult}`);
+
+  showArtists(searchResult);
 }
 
-// function searchInMusicbase(searchValue) {
-//   searchValue = searchValue.toLowerCase();
-//   const artist = artists.find((a) => a.artist_name.toLowerCase() === searchValue);
+async function submitSearchAlbum(event) {
+  event.preventDefault();
 
-//   if (!artist) {
-//     return "Kunstneren blev ikke fundet.";
-//   }
+  const form = event.target;
 
-//   const artistTracks = tracks.filter((track) => track.artistName.toLowerCase() === artist.artist_name.toLowerCase());
-//   if (!artistTracks) {
-//     return "tracket blev ikke fundet.";
-//   }
-//   return {
-//     artist: artist,
-//     tracks: artistTracks,
-//   };
-// }
+  const search = form.value.toLowerCase();
 
-// function inputSearchChanged(event) {
-//   const searchValue = event.target.value;
-//   const dataToShow = searchInMusicbase(searchValue);
-//   showArtists(dataToShow.artist);
-//   showTracks(dataToShow.tracks);
-// }
+  const searchResult = await searchAlbum(search);
+
+  showAlbums(searchResult);
+}
+
+async function submitSearchTracks(event) {
+  event.preventDefault();
+
+  const form = event.target;
+
+  const search = form.searchTrackInput.value;
+
+  const searchResult = await searchTracks(search);
+
+  showTracks(searchResult);
+}

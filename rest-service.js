@@ -15,5 +15,24 @@ async function getTracks() {
   const data = await response.json();
   return data;
 }
+async function searchArtist(searchTerm) {
+  const response = await fetch(`${endpoint}/artists/searchq=${searchTerm}`);
 
-export { getArtists, getAlbums, getTracks };
+  console.log(`repsonse ${response}`);
+  const data = await response.json();
+  console.log(`data ${data}`);
+  return data;
+}
+
+async function searchAlbum(searchTerm) {
+  const response = await fetch(`${endpoint}/albums/searchq=${searchTerm}`);
+  const data = await response.json();
+  return data;
+}
+
+async function searchTracks(searchTerm) {
+  const response = await fetch(`${endpoint}/tracks/searchq=${searchTerm}`);
+  const data = await response.json();
+  return data;
+}
+export { getArtists, getAlbums, getTracks, searchAlbum, searchArtist, searchTracks };
