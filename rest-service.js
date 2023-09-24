@@ -1,4 +1,4 @@
-const endpoint = "https://www.awohl-musicbase-db.azurewebsites.net";
+const endpoint = "http://awohl-musicbase-db.azurewebsites.net";
 
 async function getArtists() {
   const response = await fetch(`${endpoint}/artists`);
