@@ -24,16 +24,16 @@ function initApp() {
 
   document
     .querySelector("#input-search")
-    .addEventListener("keyup", submitSearchAlbum);
-  document
-    .querySelector("#input-search")
-    .addEventListener("search", submitSearchAlbum);
-  document
-    .querySelector("#input-search")
     .addEventListener("keyup", submitSearchArtist);
   document
     .querySelector("#input-search")
     .addEventListener("search", submitSearchArtist);
+  document
+    .querySelector("#input-search")
+    .addEventListener("keyup", submitSearchAlbum);
+  document
+    .querySelector("#input-search")
+    .addEventListener("search", submitSearchAlbum);
   document
     .querySelector("#input-search")
     .addEventListener("keyup", submitSearchTrack);
@@ -62,7 +62,6 @@ async function updateTracksList() {
 }
 async function updateAlbumsList() {
   albums = await getAlbums();
-  console.log(albums);
   const albumList = ListRenderer.construct(
     albums,
     "#album-list",
@@ -79,8 +78,13 @@ async function submitSearchArtist(event) {
   const search = form.value.toLowerCase();
 
   const searchResult = await searchArtist(search);
-
-  showArtists(searchResult);
+  const artistList = ListRenderer.construct(
+    searchResult,
+    "#artist-list",
+    ArtistRenderer
+  );
+  artistList.container.innerHTML = "";
+  artistList.render();
 }
 
 async function submitSearchAlbum(event) {
@@ -91,8 +95,13 @@ async function submitSearchAlbum(event) {
   const search = form.value.toLowerCase();
 
   const searchResult = await searchAlbum(search);
-
-  showAlbums(searchResult);
+  const albumList = ListRenderer.construct(
+    searchResult,
+    "#album-list",
+    AlbumRenderer
+  );
+  albumList.container.innerHTML = "";
+  albumList.render();
 }
 
 async function submitSearchTrack(event) {
@@ -103,6 +112,11 @@ async function submitSearchTrack(event) {
   const search = form.value.toLowerCase();
 
   const searchResult = await searchTracks(search);
-
-  showTracks(searchResult);
+  const trackList = ListRenderer.construct(
+    searchResult,
+    "#track-list",
+    TrackRenderer
+  );
+  trackList.container.innerHTML = "";
+  trackList.render();
 }
