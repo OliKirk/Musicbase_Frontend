@@ -1,4 +1,15 @@
-import { getArtists, getAlbums, getTracks, searchAlbum, searchArtist, searchTracks } from "./rest-service.js";
+import {
+  getArtists,
+  getAlbums,
+  getTracks,
+  searchAlbum,
+  searchArtist,
+  searchTracks,
+} from "./rest-service.js";
+import * as ListRenderer from "./ListRenderer.js";
+import { ArtistRenderer } from "./ArtistRenderer.js";
+import { TrackRenderer } from "./TrackRenderer.js";
+import { AlbumRenderer } from "./AlbumRenderer.js";
 
 window.addEventListener("load", initApp);
 
@@ -11,57 +22,49 @@ function initApp() {
   updateArtistsList();
   updateAlbumsList();
 
-  document.querySelector("#input-search").addEventListener("keyup", submitSearchAlbum);
-  document.querySelector("#input-search").addEventListener("search", submitSearchAlbum);
-  document.querySelector("#input-search").addEventListener("keyup", submitSearchArtist);
-  document.querySelector("#input-search").addEventListener("search", submitSearchArtist);
-  document.querySelector("#input-search").addEventListener("keyup", submitSearchTrack);
-  document.querySelector("#input-search").addEventListener("search", submitSearchTrack);
+  document
+    .querySelector("#input-search")
+    .addEventListener("keyup", submitSearchAlbum);
+  document
+    .querySelector("#input-search")
+    .addEventListener("search", submitSearchAlbum);
+  document
+    .querySelector("#input-search")
+    .addEventListener("keyup", submitSearchArtist);
+  document
+    .querySelector("#input-search")
+    .addEventListener("search", submitSearchArtist);
+  document
+    .querySelector("#input-search")
+    .addEventListener("keyup", submitSearchTrack);
+  document
+    .querySelector("#input-search")
+    .addEventListener("search", submitSearchTrack);
 }
 
 async function updateArtistsList() {
   artists = await getArtists();
-  showArtists(artists);
+  const artistList = ListRenderer.construct(
+    artists,
+    "#artist-list",
+    ArtistRenderer
+  );
+  artistList.render();
 }
 async function updateTracksList() {
   tracks = await getTracks();
-  showTracks(tracks);
+  const trackList = ListRenderer.construct(
+    tracks,
+    "#track-list",
+    TrackRenderer
+  );
+  trackList.render();
 }
 async function updateAlbumsList() {
   albums = await getAlbums();
-  showAlbums(albums);
-}
-
-function showArtists(list) {
-  document.querySelector("#artist-list").innerHTML = "";
-  for (const artist of list) {
-    const artistHTML = /*html*/ `
-    <ul type="none">
-      <li>${artist.artist_name}</li>
-    </ul>`;
-    document.querySelector("#artist-list").insertAdjacentHTML("beforeend", artistHTML);
-  }
-}
-
-function showTracks(list) {
-  document.querySelector("#track-list").innerHTML = "";
-  for (const track of list) {
-    const trackHTML = /*html*/ `
-    <ol type="">
-      <li>${track.track_name}</li>
-    </ol>`;
-    document.querySelector("#track-list").insertAdjacentHTML("beforeend", trackHTML);
-  }
-}
-function showAlbums(list) {
-  document.querySelector("#album-list").innerHTML = "";
-  for (const album of list) {
-    const albumHTML = /*html*/ `
-    <ul type="none">
-      <li>${album.album_name}</li>
-    </ul>`;
-    document.querySelector("#album-list").insertAdjacentHTML("beforeend", albumHTML);
-  }
+  console.log(albums);
+  const albumList = (albums, "#album-list", AlbumRenderer);
+  albumList.render();
 }
 
 async function submitSearchArtist(event) {
