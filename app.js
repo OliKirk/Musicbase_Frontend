@@ -63,7 +63,11 @@ async function updateTracksList() {
 async function updateAlbumsList() {
   albums = await getAlbums();
   console.log(albums);
-  const albumList = (albums, "#album-list", AlbumRenderer);
+  const albumList = ListRenderer.construct(
+    albums,
+    "#album-list",
+    AlbumRenderer
+  );
   albumList.render();
 }
 
