@@ -16,20 +16,20 @@ async function getTracks() {
   return data;
 }
 async function searchArtist(searchTerm) {
-  const response = await fetch(`${endpoint}/artists/search?q=${searchTerm}`);
+  const response = await fetch(`${endpoint}search/artists?q=${searchTerm}`);
 
   const data = await response.json();
   return data;
 }
 
 async function searchAlbum(searchTerm) {
-  const response = await fetch(`${endpoint}/albums/search?q=${searchTerm}`);
+  const response = await fetch(`${endpoint}/search/albums?q=${searchTerm}`);
   const data = await response.json();
   return data;
 }
 
 async function searchTracks(searchTerm) {
-  const response = await fetch(`${endpoint}/tracks/search?q=${searchTerm}`);
+  const response = await fetch(`${endpoint}/search/tracks?q=${searchTerm}`);
   const data = await response.json();
   return data;
 }
