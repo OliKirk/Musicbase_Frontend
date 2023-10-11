@@ -16,7 +16,7 @@ async function getTracks() {
   return data;
 }
 async function searchArtist(searchTerm) {
-  const response = await fetch(`${endpoint}search/artists?q=${searchTerm}`);
+  const response = await fetch(`${endpoint}/search/artists?q=${searchTerm}`);
 
   const data = await response.json();
   return data;
