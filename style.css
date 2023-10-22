@@ -32,12 +32,6 @@ img {
   height: auto;
 }
 
-button {
-  width: 199px;
-  border-radius: 8px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
 header {
   background-color: #1ED760;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -47,7 +41,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  padding-right: 40px;
 }
 
 main {
@@ -104,17 +98,14 @@ footer {
   border-radius: 20px;
 }
 
-#albums_title {
-padding-right: 100px ;
-margin: 200px;
+#album_title {
+margin: 20px;
 }
 
-#artists_title {
-padding-right: 100px ;
-margin: 200px;
+#artist_title {
+margin: 20px;
 }
 
-#tracks_title {
- padding-right: 100px ;
- margin: 200px;
+#track_title {
+margin: 20px;
  }
