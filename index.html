@@ -3,10 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <title>musicbase</title>
   </head>
+
   <body>
+    <header>
+      <h1>🎵MUSICBASE🎵</h1>
+      <br />
+      <section id="tool-grid">
+        <label for="input-search">Search</label>
+        <input type="search" id="input-search" placeholder="Search by Artist, Album, Track" />
+        <button id="add-artist-btn">Add new artist</button>
+        <button id="add-album-btn">Add new album</button>
+        <button id="add-track-btn">Add new track</button>
+      </section>
+    </header>
+    <div title="titles">
+      <section id="artist_title">Artists</section>
+      <section id="albums_title">Albums</section>
+      <section id="tracks_title">Tracks</section>
+    </div>
+    <main>
+      <section id="artist-list"></section>
+      <section id="album-list"></section>
+      <section id="track-list"></section>
+    </main>
+    <footer>
+      <h3>Made by WAHOL</h3>
+    </footer>
     <script src="app.js" type="module"></script>
   </body>
 </html>
