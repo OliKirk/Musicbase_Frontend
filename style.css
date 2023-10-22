@@ -42,18 +42,17 @@ header {
   background-color: #1ED760;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   position: abselute;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 30px -10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 main {
   display: flex;
-  padding: 0px 20px 245px;
+  padding: 0px 40px 245px;
 }
 
 main section {
