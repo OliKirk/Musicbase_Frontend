@@ -36,12 +36,12 @@ header {
   background-color: #1ED760;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   position: abselute;
-  width: 100%;
+  /* width: 100%; */
   padding: 30px -10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 40px;
+  padding: 0 40px 0 40px;
 }
 
 main {
