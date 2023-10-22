@@ -40,21 +40,26 @@ button {
 
 header {
   background-color: #1ED760;
-  color: black;
-  padding: 25px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: abselute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px -10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main {
   display: flex;
-  padding: 1cm;
+  padding: 0 20px 0px ;
 }
 
 main section {
   flex: 1;
   border: 1px solid #ccb;
-  padding-bottom: 80px;
+  color: #ccb;
   border-radius: 25px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 25px;
@@ -63,26 +68,19 @@ main section {
 
 div {
   display: flex;
+  text-align: center;
   padding: 1cm;
+  font-size: 25px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 div section {
-  /* float: 3; */
-  border: 1px solid #ccc;
-  padding: 10px;
-  height: 100%;
-  width: 25%;
-  float: left;
-  text-align: center;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  box-sizing:border-box;
+  flex: 1;
+  border: 1px solid #ccb;
+  color: #ccb;
+  padding-bottom: 1px;
   border-radius: 25px;
-  font-size:25px;
-  /* margin: -10px 250px 10px 0; */
-  /* align-items: center; */
-  
+  margin: 1%;
 }
 
 .background-header {
@@ -119,3 +117,7 @@ footer {
   border-radius: 20px;
 }
 
+#albums_title {
+padding-right: 100px ;
+margin: 200px;
+}
